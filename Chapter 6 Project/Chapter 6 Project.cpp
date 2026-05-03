@@ -3,9 +3,7 @@
 using namespace std;
 
 
-
-int perimeter(int length,int width);
-int area(int length, int width);
+int rectangle(int length,int width, int &perimeter, int &area);
 bool validateInput(int length, int width);
 
 int main()
@@ -13,6 +11,8 @@ int main()
     bool check = false;
     int userLength;
     int userWidth;
+    int foundPerimeter;
+    int foundArea;
     bool again;
 
     //gets the user input and validates it
@@ -25,10 +25,12 @@ int main()
         check = validateInput(userWidth, userLength);
     }
     
+    rectangle(userLength, userWidth, foundPerimeter, foundArea);
+
 
     // gives the user the perimeter and area of the rectangle
-    cout << "The perimeter is " << perimeter(userLength, userWidth) << endl;
-    cout << "The area is " << area(userLength, userWidth) << endl;
+    cout << "The perimeter is " << foundPerimeter << endl;
+    cout << "The area is " << foundArea << endl;
     cout << "Would you like to find another rectangle?" << endl << "0. End program" << endl << "1. Do another rectangle" << endl;
     cin >> again;
 
@@ -51,12 +53,8 @@ bool validateInput(int length, int width) {
         return true;
 }
 
-//calculates the perimeter of the user's rectangle
-int perimeter(int length, int width) {
-    return 2 * (length + width);
-}
-
-//calculates the area of the user's rectangle
-int area(int length, int width) {
-    return length * width;
+//calculates the area and perimeter of the user's rectangle
+int rectangle(int length, int width, int &perimeter, int &area) {
+    perimeter = 2 * (length + width);
+    area = length * width;
 }
