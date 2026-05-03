@@ -3,7 +3,7 @@
 using namespace std;
 
 
-int rectangle(int length,int width, int &perimeter, int &area);
+void rectangle(int length,int width, int &perimeter, int &area);
 bool validateInput(int length, int width);
 
 int main()
@@ -54,7 +54,7 @@ bool validateInput(int length, int width) {
 }
 
 //calculates the area and perimeter of the user's rectangle
-int rectangle(int length, int width, int &perimeter, int &area) {
+void rectangle(int length, int width, int &perimeter, int &area) {
     perimeter = 2 * (length + width);
     area = length * width;
 }
